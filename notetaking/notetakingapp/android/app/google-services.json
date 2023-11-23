@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "42145606678",
+    "project_id": "tasktakingapp",
+    "storage_bucket": "tasktakingapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42145606678:android:4fd192cb39fa4c958c9937",
+        "android_client_info": {
+          "package_name": "com.example.notetakingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42145606678-1r5lgc9dngjv8vtja2tjjv381a6prsm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhqdmRnd7Wk-IW-HqHq9GfF4FyJeWOUm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42145606678-1r5lgc9dngjv8vtja2tjjv381a6prsm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
