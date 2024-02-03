@@ -26,9 +26,9 @@ class custombuttons extends StatelessWidget {
       //assign field funciton to onTap
       onTap: onPressed,
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(183.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(183.0)),
         child: Container(
-          color: Color(0xff886AE2),
+          color: const Color(0xff886AE2),
           width: 150,
           height: 60,
           child: Row(
@@ -41,7 +41,7 @@ class custombuttons extends StatelessWidget {
                   fontFamily: 'Urbanist'
                 ),
               ),
-              SizedBox(width: 5.0,),
+              const SizedBox(width: 5.0,),
               Image.asset(
                 ImgAssetsPath,
                 height: 34,

@@ -1,14 +1,15 @@
 import 'package:findip/dataSource/getIpInfoDataSource.dart';
 import 'package:findip/dataSource/ip_info_dataSource.dart';
+import 'package:findip/model/ipinfomodel.dart';
 import 'package:flutter/material.dart';
 import 'widget/customButton.dart';
 import 'widget/infoBodyText.dart';
 import 'widget/infoTitleText.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Material App',
       home: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Color(0xff0F0817),
+        backgroundColor: const Color(0xff0F0817),
         body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -117,17 +118,18 @@ class _MyAppState extends State<MyApp> {
                   custombuttons(
                    
                     onPressed: () async {
-                      
-                      Map ipDataSource = await ip_info_detailes.getDetailes(ipController.text);
+
+                      ip_info_detailes ipinfo = ip_info_detailes();  
+                      IpInfoModel ipDataSource = (await ipinfo.getDetailes(ipController.text));
                       setState(() {
-                         ip = ipDataSource['ip'];
-                         city = ipDataSource['city'];
-                         region = ipDataSource['region'];
-                         country = ipDataSource['country'];
-                         loc = ipDataSource['loc'];
-                         org = ipDataSource['org'];
-                         postal = ipDataSource.containsKey('postal')? ipDataSource['postal'] : 'No postal found';
-                         timezone = ipDataSource['timezone'];
+                         ip = ipDataSource.ip.toString();
+                         city = ipDataSource.city.toString();
+                         region = ipDataSource.region.toString();
+                         country = ipDataSource.country.toString();
+                         loc = ipDataSource.loc.toString();
+                         org = ipDataSource.org.toString();
+                         postal = ipDataSource.postal.toString();
+                         timezone = ipDataSource.timezone.toString();
                          ipInfoText = ipController.text;
                       });
                     },
@@ -153,7 +155,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   Text(
                     ipInfoText,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30,
                       color: Colors.white,
                       fontFamily: 'Urbanist',
@@ -162,7 +164,7 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
 
@@ -170,11 +172,11 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
+                      children: [
                         InfoTitleText(text: "Ip"),
                         InfoTitleText(text: "City"),
                         InfoTitleText(text: "Region"),
@@ -186,7 +188,7 @@ class _MyAppState extends State<MyApp> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Expanded(
@@ -201,7 +203,7 @@ class _MyAppState extends State<MyApp> {
                         InfoBodyText(text: loc),
                         InfoBodyText(
                               text:
-                                  "${org.length > 20 ? org.substring(0, 20) : org}"),
+                                  org.length > 20 ? org.substring(0, 20) : org),
                         InfoBodyText(text: postal),
                         InfoBodyText(text: timezone)
                       ],
